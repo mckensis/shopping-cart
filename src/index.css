@@ -1,13 +1,135 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+
+.basket {
+  position: relative;
+}
+
+.basket svg {
+  font-size: 3rem;
+}
+
+.basket span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+header a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.title {
+  font-size: 1.7rem;
+}
+
+footer {
+  padding: 2rem;
+  display: flex;
+  margin-top: auto;
+  justify-content: space-between;
+}
+
+footer ul {
+  list-style: none;
+  gap: 1rem;
+  display: flex;
+}
+
+footer ul li {
+  cursor: pointer;
+}
+
+.products {
+  display: flex;
+  gap: 2rem;
+}
+
+.product {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  gap: 1rem;
+  border: 1px solid red;
+  border-radius: 2rem;
+}
+
+.image-container {
+  height: 200px;
+  width: 200px;
+}
+
+.product img {
+  width: 100%;
+  height: 100%;
+}
+
+.product button {
+  margin-top: auto;
+  font-family: inherit;
+  font-size: 0.9rem;
+  min-height: 2rem;
+  border-radius: 2rem;
+  align-self: stretch;
+  border: none;
+  cursor: pointer;
+}
+
+.product button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
