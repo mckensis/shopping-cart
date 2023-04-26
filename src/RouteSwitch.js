@@ -10,7 +10,9 @@ import getShopProducts from './getShopProducts';
 import { DataProvider } from './StoreContext';
 
 const RouteSwitch = () => {
-  const products = getShopProducts();
+  // localStorage.clear();
+  const products = JSON.parse(localStorage.getItem("products")) || getShopProducts();
+  localStorage.setItem("products", JSON.stringify(products));
 
   return (
     <BrowserRouter>

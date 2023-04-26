@@ -26,6 +26,9 @@ main {
 
 header {
   display: flex;
+  position: sticky;
+  top: 0;
+  background-color: white;
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
@@ -42,20 +45,30 @@ nav {
   position: relative;
 }
 
+.basket:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 .basket svg {
-  font-size: 3rem;
+  pointer-events: none;
+  font-size: 2.5rem;
+  margin-right: 1.25rem;
 }
 
 .basket span {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  pointer-events: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 2px;
+  aspect-ratio: 1;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
   background-color: red;
   color: white;
 }
@@ -95,7 +108,10 @@ footer ul li {
 
 .products {
   display: flex;
-  gap: 2rem;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 1000px;
 }
 
 .product {
@@ -132,4 +148,22 @@ footer ul li {
 
 .product button:hover {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.product > section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.product > section > p {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.product > section > button {
+  font: inherit;
+  min-width: 50px;
 }
