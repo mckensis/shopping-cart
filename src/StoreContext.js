@@ -3,11 +3,12 @@ import { createContext, useState } from "react";
 const StoreContext = createContext({});
 
 export const DataProvider = ({ children }) => {
-  const [basket, setBasket] = useState(JSON.parse(localStorage.getItem("basket")) || []);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || []);
+  const [cartOverlayVisibility, setCartOverlayVisibility] = useState(false);
 
   return (
     <StoreContext.Provider value={{
-      basket, setBasket
+      cart, setCart, cartOverlayVisibility, setCartOverlayVisibility
     }}>
       {children}
     </StoreContext.Provider>

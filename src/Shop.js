@@ -3,19 +3,19 @@ import { useContext } from 'react';
 import StoreContext from './StoreContext';
 
 const Shop = ({ products }) => {
-  const { basket, setBasket } = useContext(StoreContext);
+  const { cart, setCart } = useContext(StoreContext);
 
-  const saveBasket = (updatedBasket) => {
-    setBasket(updatedBasket);
-    localStorage.setItem("basket", JSON.stringify(updatedBasket));
+  const saveBasket = (updatedCart) => {
+    setCart(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
-  //Increment item quantity in basket
+  //Increment item quantity in cart
   const handleAddToBasket = (item) => {
-    let tempBasket = [...basket];
+    let tempCart = [...cart];
     
-    //Check if the item is already in the basket
-    let foundItem = tempBasket.find(basketItem => basketItem.product.id === item.id ? basketItem : null);
+    //Check if the item is already in the cart
+    let foundItem = tempCart.find(cartItem => cartItem.product.id === item.id ? cartItem : null);
     
     //Increment the quantity
     if (foundItem) {
@@ -24,20 +24,20 @@ const Shop = ({ products }) => {
     
     //Add the new item with a quantity of 1
     if (!foundItem) {
-      const newBasketItem = { product: item, quantity: 1};
-      tempBasket = [...basket, newBasketItem];
+      const newCartItem = { product: item, quantity: 1};
+      tempCart = [...cart, newCartItem];
     }
-    saveBasket(tempBasket);
+    saveBasket(tempCart);
   };
 
-  //Decrement item quantity in basket
+  //Decrement item quantity in cart
   const handleRemoveFromBasket = (item) => {
-    let tempBasket = [...basket];
+    let tempCart = [...cart];
 
-    //Check if the item is already in the basket
-    let foundItem = tempBasket.find(basketItem => basketItem.product.id === item.id);
+    //Check if the item is already in the cart
+    let foundItem = tempCart.find(cartItem => cartItem.product.id === item.id);
     
-    //Return if the item isn't in the basket
+    //Return if the item isn't in the cart
     if (!foundItem) {
       return;
     }
@@ -47,9 +47,9 @@ const Shop = ({ products }) => {
         foundItem.quantity -= 1;
       }
     }
-    //Filter out any items with quantity of 0 from the basket
-    tempBasket = tempBasket.filter(item => item.quantity > 0); 
-    saveBasket(tempBasket);
+    //Filter out any items with quantity of 0 from the cart
+    tempCart = tempCart.filter(item => item.quantity > 0); 
+    saveBasket(tempCart);
   };
 
   return (

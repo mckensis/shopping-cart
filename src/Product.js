@@ -2,10 +2,10 @@ import { useContext } from "react";
 import StoreContext from "./StoreContext";
 
 const Product = ({ product, handleAddToBasket, handleRemoveFromBasket }) => {
-  const { basket } = useContext(StoreContext);
+  const { cart } = useContext(StoreContext);
 
   const ProductButtons = () => {
-    const found = basket.find(basketItem => basketItem.product.id === product.id);
+    const found = cart.find(cartItem => cartItem.product.id === product.id);
       if (found) {
         return (
           <section>
