@@ -1,23 +1,30 @@
 import { useContext } from "react";
 import StoreContext from "./StoreContext";
+import { BsTrash3 } from "react-icons/bs";
 
-const Product = ({ product, handleAddToBasket, handleRemoveFromBasket }) => {
-  const { cart } = useContext(StoreContext);
+const Product = ({ product }) => {
+  const {
+    cart,
+    handleAddToCart,
+    handleRemoveFromCart,
+    handleDecreaseItemCount
+  } = useContext(StoreContext);
 
   const ProductButtons = () => {
     const found = cart.find(cartItem => cartItem.product.id === product.id);
       if (found) {
         return (
           <section>
-            <button type="button" onClick={() => handleRemoveFromBasket(product)}>-</button>
+            <BsTrash3 onClick={() => handleRemoveFromCart(found)} pointerEvents="bounding-box"/>
+            <button className="modify" type="button" onClick={() => handleDecreaseItemCount(product)}>-</button>
             <p>{found.quantity}</p>
-            <button onClick={() => handleAddToBasket(product)}>+</button>
+            <button className="modify" type="button" onClick={() => handleAddToCart(product)}>+</button>
           </section>
         )
       }
       if (!found) {
         return (
-          <button type='button' onClick={() => handleAddToBasket(product)}>Add to Basket</button>
+          <button type="button" className="add" onClick={() => handleAddToCart(product)}>Add to Cart</button>
         )
       }
   }
@@ -27,8 +34,10 @@ const Product = ({ product, handleAddToBasket, handleRemoveFromBasket }) => {
       <div className="image-container">
         <img src={product.image} alt='' />
       </div>
-      <h3>{product.name}</h3>
-      <h4>£{product.price}</h4>
+      <ul>
+        <h3>{product.name}</h3>
+        <p>£{product.price.toFixed(2)}</p>
+      </ul>
       <p>{product.description}</p>
       {ProductButtons()}
     </article>

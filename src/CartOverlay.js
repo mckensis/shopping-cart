@@ -1,8 +1,16 @@
 import { useContext } from "react";
 import StoreContext from "./StoreContext";
+import { BsTrash3 } from "react-icons/bs";
 
 const CartOverlay = () => {
-  const { cart, cartOverlayVisibility, setCartOverlayVisibility } = useContext(StoreContext);
+  const { 
+    cart, 
+    cartOverlayVisibility, 
+    setCartOverlayVisibility,
+    handleAddToCart,
+    handleRemoveFromCart,
+    handleDecreaseItemCount
+  } = useContext(StoreContext);
 
   return (
     <>
@@ -12,32 +20,43 @@ const CartOverlay = () => {
         <aside>
           <button className="close" onClick={() => setCartOverlayVisibility(false)}>X</button>
           <h3>Shopping Cart Summary</h3>
+          
           {cart.length === 0 && 
-            <section>
+            <section className="empty">
               <h4>Your shopping cart is empty!</h4>
             </section>
           }
+
           {cart.length > 0 && <>
           <section className="cart-items">
             {cart.map((item, index) => (
-              <>
               <article className="cart-item" key={item.product.id}>
                 <img className="thumbnail" src={item.product.image} alt="" />
                 <ul>
-                  <li>{item.product.name}</li>
-                  <li>Price: £{item.product.price}</li>
-                  <li>Quantity: {item.quantity}</li>
-                  <li>Total Cost: £{item.quantity * item.product.price}</li>
+                  <li key={item.product.name}>{item.product.name}</li>
+                  <li key={item.quantity}>£{(item.quantity * item.product.price).toFixed(2)}</li>
+                  <li key={item.product.description}>{item.product.description}</li>
                 </ul>
+                  <div className="cart-item-bottom-container">
+                    <BsTrash3 onClick={() => handleRemoveFromCart(item) }/>
+                    <button type="button" className="quantity" onClick={() => handleDecreaseItemCount(item.product)}>-</button>
+                    <p className="quantity">{item.quantity}</p>
+                    <button type="button" className="quantity" onClick={() => handleAddToCart(item.product)}>+</button>
+                  </div>
               </article>
-              {index !== cart.length -1 && <hr/>}
-              </>
             ))}
           </section>
-            <p className="subtotal">Subtotal: £{cart.reduce((total, item) => { return total + (item.quantity * item.product.price); }, 0)}</p>
-            <a href="/cart" className="big-link">Checkout</a>
+            <p className="subtotal">
+              Subtotal: £
+              {
+                Math.round((
+                  cart.reduce((total, item) => 
+                    { return total + (item.quantity * item.product.price); }, 0)
+                + Number.EPSILON) * 100) / 100
+              }
+            </p>
+            <a href="/cart" className="big-link">Continue to Checkout</a>
           </>}
-          <a href="/shop" className="big-link">Shop</a>
         </aside>
       </>
     }
