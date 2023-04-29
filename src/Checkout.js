@@ -23,7 +23,7 @@ const Checkout = () => {
             + Number.EPSILON) * 100) / 100
           }
         </p>
-        <a className="big-link" href="#">Confirm Order</a>
+        <a className="big-link" href="/checkout">Confirm Order</a>
       </section>  
     </main>
   )

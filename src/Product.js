@@ -32,7 +32,7 @@ const Product = ({ product }) => {
   return (
     <article className='product'>
       <div className="image-container">
-        <img src={product.image} alt='' />
+        <img src={process.env.PUBLIC_URL + product.image} alt={product.common} />
       </div>
       <ul>
         <li>{product.common}</li>

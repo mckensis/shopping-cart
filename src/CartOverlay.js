@@ -31,7 +31,7 @@ const CartOverlay = () => {
           <section className="cart-items">
             {cart.map((item, index) => (
               <article className="cart-item" key={item.product.id}>
-                <img className="thumbnail" src={item.product.image} alt="" />
+                <img className="thumbnail" src={process.env.PUBLIC_URL + item.product.image} alt="" />
                 <ul>
                   <li key={item.product.name}>{item.product.name}</li>
                   <li key={item.quantity}>£{(item.quantity * item.product.price).toFixed(2)}</li>
