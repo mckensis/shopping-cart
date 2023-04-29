@@ -6,7 +6,7 @@ const CartOverlay = () => {
   const { 
     cart, 
     cartOverlayVisibility, 
-    setCartOverlayVisibility,
+    handleHideCart,
     handleAddToCart,
     handleRemoveFromCart,
     handleDecreaseItemCount
@@ -15,10 +15,10 @@ const CartOverlay = () => {
   return (
     <>
     {cartOverlayVisibility && <>
-        <div className="overlay" onClick={() => setCartOverlayVisibility(false)}>
+        <div className="overlay" onClick={() => handleHideCart()}>
         </div>
         <aside>
-          <button className="close" onClick={() => setCartOverlayVisibility(false)}>X</button>
+          <button className="close" onClick={() => handleHideCart()}>X</button>
           <h3>Shopping Cart Summary</h3>
           
           {cart.length === 0 && 

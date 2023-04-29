@@ -11,6 +11,16 @@ export const DataProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
+  const handleHideCart = () => {
+    document.body.classList.remove('no-scroll');
+    setCartOverlayVisibility(false);
+  }
+
+  const handleShowCart = () => {
+    document.body.classList.add('no-scroll');
+    setCartOverlayVisibility(true);
+  }
+
   //Increment item quantity in cart
   const handleAddToCart = (item) => {
     let tempCart = [...cart];
@@ -57,7 +67,8 @@ export const DataProvider = ({ children }) => {
   return (
     <StoreContext.Provider value={{
       cart, setCart, cartOverlayVisibility, setCartOverlayVisibility,
-      handleAddToCart, handleRemoveFromCart, handleDecreaseItemCount, saveCart
+      handleAddToCart, handleRemoveFromCart, handleDecreaseItemCount, 
+      handleShowCart, handleHideCart, saveCart
     }}>
       {children}
     </StoreContext.Provider>

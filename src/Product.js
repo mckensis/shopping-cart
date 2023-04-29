@@ -35,10 +35,10 @@ const Product = ({ product }) => {
         <img src={product.image} alt='' />
       </div>
       <ul>
-        <h3>{product.name}</h3>
-        <p>£{product.price.toFixed(2)}</p>
+        <li>{product.common}</li>
+        <li>{product.name}</li>
+        <li>£{product.price.toFixed(2)}</li>
       </ul>
-      <p>{product.description}</p>
       {ProductButtons()}
     </article>
   )

@@ -32,7 +32,9 @@ html {
 
 h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 1rem;
 }
 
 svg > * {
@@ -57,8 +59,9 @@ button {
 
 /* Button styles */
 button.add {
+  border-radius: 0 0 1rem 1rem;
   align-self: stretch;
-  margin-top: auto;
+  height: 2rem;
 }
 
 button:hover {
@@ -109,8 +112,8 @@ header {
   display: flex;
   position: sticky;
   top: 0;
-  background-color: var(--darkest);
-  color: var(--lightest);
+  background-color: var(--lightest);
+  color: var(--black);
   padding: 0.5rem;
   justify-content: space-between;
   align-items: center;
@@ -118,9 +121,24 @@ header {
   box-shadow: 0 2px 5px var(--darkest);
 }
 
-header a {
-  color: var(--lightest);
+nav a {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--black);
   text-decoration: none;
+}
+
+header a.title {
+  display: flex;
+  color: var(--black);
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+header img.icon {
+  margin-left: 5px;
+  height: 30px;
 }
 
 nav {
@@ -131,14 +149,15 @@ nav {
   text-transform: uppercase;
 }
 
+nav a:hover {
+  text-decoration: underline;
+  transform: scale(2);
+}
+
 nav ul {
   list-style: none;
   display: flex;
   gap: 2rem;
-}
-
-nav a:hover {
-  color: var(--color);
 }
 
 aside {
@@ -148,7 +167,7 @@ aside {
   top: 0;
   right: 0;
   z-index: 2;
-  height: 100vh;
+  height: 100%;
   min-width: 500px;
   background-color: var(--lightest);
   display: flex;
@@ -160,17 +179,6 @@ aside {
   overflow-y: auto;
 }
 
-.overlay {
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.7);
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-}
-
 .basket {
   position: relative;
 }
@@ -178,10 +186,6 @@ aside {
 .basket:hover {
   cursor: pointer;
   transform: scale(1.1);
-}
-
-.basket:hover svg {
-  color: var(--color);
 }
 
 .basket svg {
@@ -207,10 +211,6 @@ aside {
   border-radius: 50%;
   background-color: red;
   color: var(--lightest);
-}
-
-a.title {
-  font-size: 1.7rem;
 }
 
 footer {
@@ -239,13 +239,12 @@ footer ul li:hover {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-  max-width: 1000px;
+  max-width: 1200px;
   overflow-y: auto;
 }
 
 .product {
   background-color: var(--lightest);
-  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -257,26 +256,45 @@ footer ul li:hover {
 
 .product > ul {
   display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 0.25rem;
+  padding: 0 0.5rem;
   justify-content: space-between;
-  align-items: center;
+}
+
+.product > ul li:nth-of-type(1) {
+  font-weight: 600;
+}
+
+.product > ul li:nth-last-of-type(1) {
+  margin-top: 1rem;
+}
+
+.product > ul li:nth-last-of-type(2) {
+  text-transform: uppercase;
+  color: grey;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
 .image-container {
   align-self: center;
-  height: 200px;
-  width: 200px;
 }
 
 .product img {
   width: 100%;
   height: 100%;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .product > section {
+  padding: 0 0.75rem;
+  height: 1.75rem;
+  padding-bottom: 0.25rem;
   display: flex;
   align-items: center;
   width: 100%;
-  position: relative;
 }
 
 .product > section > svg {
@@ -287,10 +305,9 @@ footer ul li:hover {
 .product > section > p {
   display: grid;
   place-content: center;
-  width: 32px;
+  width: 64px;
   height: 32px;
-  font-size: 1.2rem;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   text-align: center;
 }
 
@@ -397,4 +414,20 @@ p.quantity {
   display: flex;
   height: 100%;
   align-items: center;
+}
+
+.overlay {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 90vw;
+  height: 1000vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.no-scroll {
+  margin-right: 12px;
+  overflow: hidden;
 }

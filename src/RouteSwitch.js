@@ -12,7 +12,7 @@ import { DataProvider } from './StoreContext';
 
 const RouteSwitch = () => {
   // localStorage.clear();
-  const products = JSON.parse(localStorage.getItem('products')) || getShopProducts();
+  const products = getShopProducts();
   localStorage.setItem('products', JSON.stringify(products));
 
   return (
