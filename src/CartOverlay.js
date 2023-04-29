@@ -55,7 +55,7 @@ const CartOverlay = () => {
                 + Number.EPSILON) * 100) / 100
               }
             </p>
-            <a href="/cart" className="big-link">Continue to Checkout</a>
+            <a href="/checkout" className="big-link">Continue to Checkout</a>
           </>}
         </aside>
       </>

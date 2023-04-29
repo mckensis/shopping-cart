@@ -135,6 +135,10 @@ header a.title {
   font-weight: 700;
 }
 
+header a.title img {
+  pointer-events: none;
+}
+
 header img.icon {
   margin-left: 5px;
   height: 30px;
@@ -263,7 +267,8 @@ footer ul li:hover {
   margin: 1rem;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  column-gap: 1rem;
+  row-gap: 1.5rem;
   flex-wrap: wrap;
   max-width: 1200px;
   overflow-y: auto;
@@ -272,10 +277,9 @@ footer ul li:hover {
 .product {
   background-color: var(--lightest);
   display: flex;
+  max-width: 215px;
   flex-direction: column;
-  width: 250px;
   gap: 0.75rem;
-  min-height: 350px;
   border: 1px solid var(--middle);
   border-radius: 1rem;
 }
@@ -294,7 +298,8 @@ footer ul li:hover {
 }
 
 .product > ul li:nth-last-of-type(1) {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .product > ul li:nth-last-of-type(2) {
@@ -317,7 +322,8 @@ footer ul li:hover {
 .product > section {
   padding: 0 0.75rem;
   height: 1.75rem;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
   display: flex;
   align-items: center;
   width: 100%;
@@ -393,6 +399,11 @@ aside h3 {
   font-size: 1.2rem;
 }
 
+.cart-item ul li:nth-of-type(2) {
+  margin-right: 0.25rem;
+  font-size: 1rem;
+}
+
 .cart-item ul li:nth-of-type(3) {
   flex-basis: 100%;
 }
@@ -409,10 +420,7 @@ aside h3 {
 
 img.thumbnail {
   grid-row: 1 / -1;
-  min-width: 100px;
-  min-height: 100px;
-  max-width: 100px;
-  max-height: 100px;
+  width: 75px;
   place-self: center;
 }
 
@@ -420,6 +428,8 @@ p.subtotal {
   width: 100%;
   text-align: right;
   margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
   padding-right: 1rem;
 }
 
@@ -454,7 +464,6 @@ p.quantity {
 }
 
 .no-scroll {
-  margin-right: 12px;
   overflow: hidden;
 }
 
@@ -519,4 +528,26 @@ img.contact:hover {
 .details ul span {
   margin-right: 1rem;
   font-weight: 600;
+}
+
+.order-summary {
+  background-color: var(--lightest);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--middle);
+  border-radius: 1rem;
+}
+
+.order-summary > article {
+  display: flex;
+  gap: 0.25rem;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.order-summary .subtotal {
+  padding: 0;
+  margin: 0;
 }

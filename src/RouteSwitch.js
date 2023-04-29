@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Homepage from './Homepage';
-import Cart from './Cart';
+import Checkout from './Checkout';
 import CartOverlay from './CartOverlay';
 import Shop from './Shop';
 import Nav from './Nav';
@@ -21,10 +21,10 @@ const RouteSwitch = () => {
         <Nav />
         <CartOverlay />
         <Routes>
-          <Route path='/' element={<Homepage/>} />
-          <Route path='/shop' element={<Shop products={products}/> }/>
-          <Route path='/cart' element={<Cart/> } />
-          <Route path='/contact' element={<Contact/> } />
+          <Route path='/' element={<Homepage />} />
+          <Route path='/shop' element={<Shop products={products} /> }/>
+          <Route path='/checkout' element={<Checkout /> } />
+          <Route path='/contact' element={<Contact /> } />
         </Routes>
         <Footer/>
       </DataProvider>
