@@ -27,7 +27,6 @@ html {
   min-height: 100vh;
   background-color: var(--light);
   color: var(--black);
-  gap: 1rem;
 }
 
 h2 {
@@ -233,6 +232,33 @@ footer ul li:hover {
   text-decoration: underline;
 }
 
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  align-self: stretch;
+  object-fit: cover;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('./hero.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+  color: var(--lightest);
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero .big-link {
+  font-size: 2rem;
+}
+
 .products {
   margin: 1rem;
   display: flex;
@@ -430,4 +456,67 @@ p.quantity {
 .no-scroll {
   margin-right: 12px;
   overflow: hidden;
+}
+
+img.contact {
+  cursor: pointer;
+}
+
+img.contact:hover {
+  background-color: var(--color);
+  border-radius: 0.25rem;
+}
+
+.big-background {
+  object-fit: cover;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('./hero.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-evenly;
+}
+
+.contact-page > section {
+  background-color: var(--lightest);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem;
+  border: 1px solid var(--middle);
+  border-radius: 1rem;
+}
+
+.social h2 {
+  justify-self: start;
+}
+
+.social ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.details ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  font-size: 1.3rem;
+}
+
+.details ul span {
+  margin-right: 1rem;
+  font-weight: 600;
 }

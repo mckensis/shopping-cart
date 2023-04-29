@@ -1,7 +1,10 @@
 function Homepage() {
   return (
     <main>
-      <h1>Welcome to </h1>
+      <section className="hero">
+        <h1>Welcome to Planty</h1>
+        <a href="/shop" className="big-link">Shop Now</a>
+      </section>
     </main>
   );
 }
