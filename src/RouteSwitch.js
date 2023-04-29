@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Homepage from "./Homepage";
 import Checkout from "./Checkout";
 import CartOverlay from "./CartOverlay";
@@ -16,7 +16,7 @@ const RouteSwitch = () => {
   localStorage.setItem("products", JSON.stringify(products));
 
   return (
-    <HashRouter basename="/shopping-cart">
+    <BrowserRouter>
       <DataProvider>
         <Nav />
         <CartOverlay />
@@ -28,7 +28,7 @@ const RouteSwitch = () => {
         </Routes>
         <Footer/>
       </DataProvider>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 

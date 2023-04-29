@@ -49,10 +49,10 @@ const CartOverlay = () => {
             <p className="subtotal">
               Subtotal: £
               {
-                Math.round((
+                (
                   cart.reduce((total, item) => 
-                    { return total + (item.quantity * item.product.price); }, 0)
-                + Number.EPSILON) * 100) / 100
+                    { return total + (item.quantity * item.product.price); }, 0).toFixed(2)
+                )
               }
             </p>
             <a href="/checkout" className="big-link">Continue to Checkout</a>
