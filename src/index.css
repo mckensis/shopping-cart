@@ -67,7 +67,6 @@ button.add {
 button:hover {
   background-color: var(--color);
   color: var(--black);
-  transform: scale(1.01);
 }
 
 button.modify {
@@ -381,8 +380,7 @@ footer ul li:hover {
 }
 
 aside h3 {
-  margin-left: auto;
-  margin-right: 1rem;
+  margin: auto;
   font-size: 1.7rem;
 }
 
@@ -442,13 +440,37 @@ img.thumbnail {
   place-self: center;
 }
 
-p.subtotal {
+.costs {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  text-align: right;
-  margin-top: 1rem;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   padding-right: 1rem;
+  line-height: 1.5rem;
+}
+
+.costs > p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.costs > p:not(.costs > p:nth-of-type(2)):not(p.total) {
+  margin-bottom: 1rem;
+}
+
+p.subtitle {
+  color: grey;
+  font-size: 0.9rem;
+}
+
+p.total {
+  font-weight: 600;
+}
+
+hr {
+  margin: 0.5rem;
+  width: 80%;
 }
 
 .cart-item-bottom-container {
@@ -607,11 +629,11 @@ img.contact:hover {
   }
   @keyframes textAttention {
     0% {
-      transform: scale(1.2);
+      font-size: 1.3rem;
     }
 
     100% {
-      transform: scale(1);
+      font-size: 1rem;
     }
   }
 
@@ -658,7 +680,7 @@ img.contact:hover {
     animation-fill-mode: backwards;
   }
   
-  aside .subtotal {
+  .costs, hr {
     -webkit-animation-name: -webkit-slideInFromRight;
     -webkit-animation-duration: 0.5s;
     -webkit-animation-delay: 0.75s;
