@@ -16,14 +16,15 @@ const Checkout = () => {
             <p>£{item.product.price}</p>
           </article>
         ))}
+        <hr />
         <section className="totals">
           <p>Subtotal <span>£{returnCartCost()}</span></p>
           <p>Delivery <span>£{returnDeliveryCost()}</span></p>
           <p className="total">Total <span>£{returnTotalCost()}</span></p>
         </section>
+        <hr />
         <Link className="big-link" to="/checkout">Confirm Order</Link>
         </>}
-
         {cart.length === 0 &&
           <section className="empty">
             <h4>Your shopping cart is empty!</h4>

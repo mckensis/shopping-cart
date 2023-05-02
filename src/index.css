@@ -680,7 +680,8 @@ img.contact:hover {
     animation-fill-mode: backwards;
   }
   
-  .costs, hr {
+  .costs,
+  aside hr {
     -webkit-animation-name: -webkit-slideInFromRight;
     -webkit-animation-duration: 0.5s;
     -webkit-animation-delay: 0.75s;
