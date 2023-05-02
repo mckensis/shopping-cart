@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import StoreContext from './StoreContext';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import Icon from "./images/icon.png";
@@ -8,14 +9,14 @@ const Nav = () => {
 
   return (
     <header>
-      <a href="/" className='title'>
+      <Link to="/" className='title'>
         Planty
         <img className="icon" src={Icon} alt=""/>
-      </a>
+      </Link>
       <nav>
         <ul>
-          <li><a href='/shop'>Shop</a></li>
-          <li><a href='/contact'>Contact</a></li>
+          <li><Link to="/shop">Shop</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
       </nav>
       <div className='basket' onClick={() => handleShowCart()}>

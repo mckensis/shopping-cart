@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import StoreContext from "./StoreContext";
 import { BsTrash3 } from "react-icons/bs";
 
@@ -55,7 +56,7 @@ const CartOverlay = () => {
                 )
               }
             </p>
-            <a href="/checkout" className="big-link">Continue to Checkout</a>
+            <Link to="/checkout" onClick={() => handleHideCart()} className="big-link">Continue to Checkout</Link>
           </>}
         </aside>
       </>
