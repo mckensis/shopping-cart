@@ -289,9 +289,9 @@ footer ul li:hover {
 .product {
   background-color: var(--lightest);
   display: flex;
-  min-width: 150px;
+  min-width: 125px;
   max-width: 200px;
-  flex: 1 1 200px;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: 0.75rem;
   border: 1px solid var(--middle);
