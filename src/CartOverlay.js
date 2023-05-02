@@ -19,8 +19,10 @@ const CartOverlay = () => {
         <div className="overlay" onClick={() => handleHideCart()}>
         </div>
         <aside>
-          <button className="close" onClick={() => handleHideCart()}>X</button>
-          <h3>Shopping Cart Summary</h3>
+          <section className="top-section">
+            <button className="close" onClick={() => handleHideCart()}>X</button>
+            <h3>Shopping Cart Summary</h3>
+          </section>
           
           {cart.length === 0 && 
             <section className="empty">

@@ -76,7 +76,6 @@ button.modify {
 }
 
 button.close {
-  position: absolute;
   margin: 0.25rem;
   font-size: 2rem;
   border: none;
@@ -172,7 +171,8 @@ aside {
   right: 0;
   z-index: 2;
   height: 100%;
-  min-width: 500px;
+  width: 500px;
+  max-width: 80vw;
   background-color: var(--lightest);
   display: flex;
   gap: 1rem;
@@ -181,6 +181,14 @@ aside {
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .basket {
@@ -372,9 +380,7 @@ footer ul li:hover {
 }
 
 aside h3 {
-  margin-top: 0.25rem;
   font-size: 1.7rem;
-  margin-bottom: 1rem;
 }
 
 .cart-items {
@@ -457,7 +463,6 @@ p.quantity {
 
 .empty {
   display: flex;
-  height: 100%;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -625,6 +630,42 @@ img.contact:hover {
     animation-delay: 0.1s;
     animation-fill-mode: backwards;
   }
+  
+  aside .top-section {
+    -webkit-animation-name: -webkit-slideInFromRight;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 0.3s;
+    -webkit-animation-fill-mode: backwards;
+    
+    animation-name: slideInFromRight;
+    animation-duration: 0.5s;
+    animation-delay: 0.3s;
+    animation-fill-mode: backwards;
+  }
+  
+  aside .big-link {
+    -webkit-animation-name: -webkit-slideInFromRight;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-fill-mode: backwards;
+    
+    animation-name: slideInFromRight;
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+  }
+  
+  aside .subtotal {
+    -webkit-animation-name: -webkit-slideInFromRight;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 0.75s;
+    -webkit-animation-fill-mode: backwards;
+    
+    animation-name: slideInFromRight;
+    animation-duration: 0.5s;
+    animation-delay: 0.75s;
+    animation-fill-mode: backwards;
+  }
 
   .cart-items {
     -webkit-animation-name: -webkit-slideInFromRight;
@@ -644,5 +685,17 @@ img.contact:hover {
 
     animation-name: textAttention;
     animation-duration: .75s;
+  }
+
+  .empty {
+    -webkit-animation-name: -webkit-slideInFromRight;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    -webkit-animation-fill-mode: backwards;
+
+    animation-name: slideInFromRight;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
   }
 }
