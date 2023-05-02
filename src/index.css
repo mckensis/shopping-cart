@@ -289,7 +289,7 @@ footer ul li:hover {
 .product {
   background-color: var(--lightest);
   display: flex;
-  min-width: 175px;
+  min-width: 150px;
   max-width: 200px;
   flex: 1 1 200px;
   flex-direction: column;
