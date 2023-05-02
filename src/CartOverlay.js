@@ -10,22 +10,11 @@ const CartOverlay = () => {
     handleHideCart,
     handleAddToCart,
     handleRemoveFromCart,
-    handleDecreaseItemCount
+    handleDecreaseItemCount,
+    returnCartCost,
+    returnDeliveryCost,
+    returnTotalCost
   } = useContext(StoreContext);
-
-  const BasketTotal = () => {
-    return cart.reduce((total, item) => 
-      { return Number(total + (item.quantity * item.product.price)); }, 0)
-  }
-
-  const DeliveryTotal = () => {
-    if (BasketTotal() > 25) return 0.00;
-    return Number(5);
-  }
-
-  const Total = () => {
-    return BasketTotal() + DeliveryTotal();
-  }
 
   return (
     <>
@@ -65,10 +54,10 @@ const CartOverlay = () => {
           </section>
             <hr />
           <section className="costs">
-            <p>Subtotal<span>£{BasketTotal().toFixed(2)}</span></p>
-            <p>Delivery<span>£{DeliveryTotal().toFixed(2)}</span></p>
-            <p className="subtitle">(Free Delivery on orders over £30)</p>
-            <p className="total">Total <span>£{Total().toFixed(2)}</span></p>
+            <p>Subtotal<span>£{returnCartCost().toFixed(2)}</span></p>
+            <p>Delivery<span>£{returnDeliveryCost().toFixed(2)}</span></p>
+            <p className="subtitle">(Free Delivery on orders over £20)</p>
+            <p className="total">Total <span>£{returnTotalCost().toFixed(2)}</span></p>
           </section>
           <hr />
             <Link to="/checkout" onClick={() => handleHideCart()} className="big-link">Continue to Checkout</Link>

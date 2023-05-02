@@ -64,11 +64,26 @@ export const DataProvider = ({ children }) => {
     saveCart(tempCart);
   };
 
+  const returnCartCost = () => {
+    return cart.reduce((total, item) => 
+      { return Number(total + (item.quantity * item.product.price)); }, 0)
+  }
+
+  const returnDeliveryCost = () => {
+    if (returnCartCost() > 20) return 0.00;
+    return Number(5);
+  }
+
+  const returnTotalCost = () => {
+    return returnCartCost() + returnDeliveryCost();
+  }
+
   return (
     <StoreContext.Provider value={{
       cart, setCart, cartOverlayVisibility, setCartOverlayVisibility,
       handleAddToCart, handleRemoveFromCart, handleDecreaseItemCount, 
-      handleShowCart, handleHideCart, saveCart
+      handleShowCart, handleHideCart, saveCart,
+      returnCartCost, returnDeliveryCost, returnTotalCost
     }}>
       {children}
     </StoreContext.Provider>

@@ -3,7 +3,7 @@ import StoreContext from "./StoreContext";
 import { Link } from "react-router-dom";
 
 const Checkout = () => {
-  const { cart } = useContext(StoreContext);
+  const { cart, returnCartCost, returnDeliveryCost, returnTotalCost } = useContext(StoreContext);
 
   return (
     <main>
@@ -16,16 +16,12 @@ const Checkout = () => {
             <p>£{item.product.price}</p>
           </article>
         ))}
-        <p className="subtotal">
-          Subtotal: £
-          {
-            (
-              cart.reduce((total, item) => 
-              { return total + (item.quantity * item.product.price); }, 0).toFixed(2)
-              )
-          }
-        </p>
-        <a className="big-link" href="/checkout">Confirm Order</a>
+        <section className="totals">
+          <p>Subtotal <span>£{returnCartCost()}</span></p>
+          <p>Delivery <span>£{returnDeliveryCost()}</span></p>
+          <p className="total">Total <span>£{returnTotalCost()}</span></p>
+        </section>
+        <Link className="big-link" to="/checkout">Confirm Order</Link>
         </>}
 
         {cart.length === 0 &&
