@@ -21,7 +21,7 @@ const CartOverlay = () => {
         <aside>
           <section className="top-section">
             <button className="close" onClick={() => handleHideCart()}>X</button>
-            <h3>Shopping Cart Summary</h3>
+            <h3>Cart Summary</h3>
           </section>
           
           {cart.length === 0 && 
