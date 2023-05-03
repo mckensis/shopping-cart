@@ -2,8 +2,8 @@
   --darkest: #484349;
   --dark: #707a7e;
   --middle: #9ba8ae;
-  --light: #FDFFFD;
-  --lightest: #FFFAFF;
+  --light: #F1F9F8;
+  --lightest: #FDFFFD;
   --color: #00FF7F;
   --black: #100B00;
 }
@@ -116,7 +116,7 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 1;
-  box-shadow: 0 2px 5px var(--darkest);
+  box-shadow: 0 2px 5px var(--middle);
 }
 
 nav a {
@@ -177,7 +177,7 @@ aside {
   display: flex;
   gap: 1rem;
   border-right: 1px solid var(--darkest);
-  box-shadow: -1px 0px 20px var(--darkest);
+  box-shadow: -1px 0px 5px var(--darkest);
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
@@ -231,7 +231,7 @@ footer {
   justify-content: space-between;
   background-color: var(--dark);
   color: var(--lightest);
-  box-shadow: 0 -1px 10px var(--dark);
+  box-shadow: 0 -1px 5px var(--dark);
 }
 
 footer ul {
