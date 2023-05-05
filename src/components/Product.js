@@ -10,9 +10,11 @@ const Product = ({ product }) => {
     handleDecreaseItemCount
   } = useContext(StoreContext);
 
+  // The 'add to cart' or edit quantity buttons for each product
   const ProductButtons = () => {
     const found = cart.find(cartItem => cartItem.product.id === product.id);
-      if (found) {
+    if (found) {
+        // If the item is in the cart return buttons to update the quantity of the product in the cart
         return (
           <section>
             <BsTrash3 onClick={() => handleRemoveFromCart(found)} pointerEvents="bounding-box"/>
@@ -23,6 +25,7 @@ const Product = ({ product }) => {
         )
       }
       if (!found) {
+        // If the item is not in the cart return a button to add the product to the cart
         return (
           <button type="button" className="add" onClick={() => handleAddToCart(product)}>Add to Cart</button>
         )
@@ -37,7 +40,7 @@ const Product = ({ product }) => {
       <ul>
         <li>{product.common}</li>
         <li>{product.name}</li>
-        <li>£{product.price.toFixed(2)}</li>
+        <li>£{product.price}</li>
       </ul>
       {ProductButtons()}
     </article>

@@ -6,6 +6,7 @@ const Contact = () => {
   return (
     <main className='big-background'>
       <section className="contact-page">
+        
         <section className="details">
           <h2>Contact Us:</h2>
           <ul>
@@ -13,6 +14,7 @@ const Contact = () => {
             <li><span>E:</span>planty@plantyisplenty.com</li>
           </ul>
         </section>
+        
         <section className="social">
           <h2>Find Us:</h2>
           <ul>
@@ -27,6 +29,7 @@ const Contact = () => {
             </li>
           </ul>
         </section>
+
       </section>
     </main>
   )

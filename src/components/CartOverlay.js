@@ -4,7 +4,7 @@ import { BsTrash3 } from "react-icons/bs";
 import StoreContext from "../context/StoreContext";
 
 const CartOverlay = () => {
-  const { 
+  const {
     cart, 
     cartOverlayVisibility, 
     handleHideCart,
@@ -19,21 +19,20 @@ const CartOverlay = () => {
   return (
     <>
     {cartOverlayVisibility && <>
-        <div className="overlay" onClick={() => handleHideCart()}>
-        </div>
-        <aside>
-          <section className="top-section">
-            <button className="close" onClick={() => handleHideCart()}>X</button>
-            <h3>Cart Summary</h3>
-          </section>
+      <div className="overlay" onClick={() => handleHideCart()}></div>
+      <aside>
+        <section className="top-section">
+          <button className="close" onClick={() => handleHideCart()}>X</button>
+          <h3>Cart Summary</h3>
+        </section>
           
-          {cart.length === 0 && 
-            <section className="empty">
-              <h4>Your shopping cart is empty!</h4>
-            </section>
-          }
+        {cart.length === 0 && 
+          <section className="empty">
+            <h4>Your shopping cart is empty!</h4>
+          </section>
+        }
 
-          {cart.length > 0 && <>
+        {cart.length > 0 && <>
           <section className="cart-items">
             {cart.map((item) => (
               <article className="cart-item" key={item.product.id}>
@@ -52,19 +51,23 @@ const CartOverlay = () => {
               </article>
             ))}
           </section>
-            <hr />
+
+          <hr />
+          
           <section className="costs">
             <p>Subtotal<span>£{returnCartCost()}</span></p>
             <p>Delivery<span>£{returnDeliveryCost()}</span></p>
             <p className="subtitle">(Free Delivery on orders over £20)</p>
             <p className="total">Total <span>£{returnTotalCost()}</span></p>
           </section>
+          
           <hr />
-            <Link to="/checkout" onClick={() => handleHideCart()} className="big-link">Continue to Checkout</Link>
-          </>}
-        </aside>
-      </>
-    }
+          
+          <Link to="/checkout" onClick={() => handleHideCart()} className="big-link">Continue to Checkout</Link>
+        </>}
+
+      </aside>
+    </>}
     </>
   )
 }

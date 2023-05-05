@@ -5,29 +5,32 @@ import plantIcon from '../images/icon.png';
 import StoreContext from '../context/StoreContext';
 
 const Nav = () => {
-  const { cart, handleShowCart } = useContext(StoreContext);
+  const { 
+    cart,
+    returnTotalItemsInCart,
+    handleShowCart 
+  } = useContext(StoreContext);
 
   return (
     <header>
+
       <Link to="/" className='title'>
         Planty
         <img className="icon" src={plantIcon} alt=""/>
       </Link>
+      
       <nav>
         <ul>
           <li><Link to="/shop">Shop</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>
       </nav>
+      
       <div className='basket' onClick={() => handleShowCart()}>
         <AiOutlineShoppingCart />
-        {cart.length > 0
-          &&
-            <span>
-              {cart.reduce((total, item) => { return total + item.quantity; }, 0)}
-            </span>
-        }
+        {cart.length > 0 && <span>{returnTotalItemsInCart()}</span>}
       </div>
+
     </header>
   )
 }
