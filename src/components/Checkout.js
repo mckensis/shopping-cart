@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import StoreContext from "./StoreContext";
 import { Link } from "react-router-dom";
+import StoreContext from "../context/StoreContext";
 
 const Checkout = () => {
   const { cart, returnCartCost, returnDeliveryCost, returnTotalCost } = useContext(StoreContext);
@@ -12,7 +12,7 @@ const Checkout = () => {
           <h2>Order Summary</h2>
           {cart.length > 0 && <>
           {cart.map((item) => (
-            <article>
+            <article key={item.product.id}>
               <h3>{item.product.common} x{item.quantity}</h3>
               <p>£{item.product.price}</p>
             </article>

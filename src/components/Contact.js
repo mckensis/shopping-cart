@@ -1,6 +1,6 @@
-import fb from './images/facebook.png';
-import ig from './images/instagram.png';
-import tw from './images/twitter.png';
+import facebookIcon from '../images/facebook.png';
+import instagramIcon from '../images/instagram.png';
+import twitterIcon from '../images/twitter.png';
 
 const Contact = () => {
   return (
@@ -17,13 +17,13 @@ const Contact = () => {
           <h2>Find Us:</h2>
           <ul>
             <li>
-              <img className="contact" src={fb} alt="Facebook" title="Facebook" />
+              <img className="contact" src={facebookIcon} alt="Facebook" title="Facebook" />
             </li>
             <li>
-              <img className="contact" src={ig} alt="" title="Instagram" />
+              <img className="contact" src={instagramIcon} alt="" title="Instagram" />
             </li>
             <li>
-              <img className="contact" src={tw} alt="" title="Twitter" />
+              <img className="contact" src={twitterIcon} alt="" title="Twitter" />
             </li>
           </ul>
         </section>

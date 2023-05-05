@@ -1,6 +1,9 @@
+import getShopProducts from "../functions/getShopProducts";
 import Product from './Product';
 
-const Shop = ({ products }) => {
+const Shop = () => {
+  //Retrieve the list of products for sale
+  const products = getShopProducts();
 
   return (
     <main>

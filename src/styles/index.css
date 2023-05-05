@@ -259,7 +259,7 @@ footer ul li:hover {
   object-fit: cover;
   height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url('./images/hero.jpg');
+    url('../images/hero.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -743,7 +743,7 @@ img.contact:hover {
     animation-duration: .75s;
   }
 
-  .empty {
+  aside .empty {
     -webkit-animation-name: -webkit-slideInFromRight;
     -webkit-animation-duration: 0.5s;
     -webkit-animation-delay: 0.5s;

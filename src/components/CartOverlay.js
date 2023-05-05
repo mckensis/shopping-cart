@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import StoreContext from "./StoreContext";
 import { BsTrash3 } from "react-icons/bs";
+import StoreContext from "../context/StoreContext";
 
 const CartOverlay = () => {
   const { 
@@ -35,7 +35,7 @@ const CartOverlay = () => {
 
           {cart.length > 0 && <>
           <section className="cart-items">
-            {cart.map((item, index) => (
+            {cart.map((item) => (
               <article className="cart-item" key={item.product.id}>
                 <img className="thumbnail" src={process.env.PUBLIC_URL + item.product.image} alt="" />
                 <ul>
@@ -54,10 +54,10 @@ const CartOverlay = () => {
           </section>
             <hr />
           <section className="costs">
-            <p>Subtotal<span>£{returnCartCost().toFixed(2)}</span></p>
-            <p>Delivery<span>£{returnDeliveryCost().toFixed(2)}</span></p>
+            <p>Subtotal<span>£{returnCartCost()}</span></p>
+            <p>Delivery<span>£{returnDeliveryCost()}</span></p>
             <p className="subtitle">(Free Delivery on orders over £20)</p>
-            <p className="total">Total <span>£{returnTotalCost().toFixed(2)}</span></p>
+            <p className="total">Total <span>£{returnTotalCost()}</span></p>
           </section>
           <hr />
             <Link to="/checkout" onClick={() => handleHideCart()} className="big-link">Continue to Checkout</Link>

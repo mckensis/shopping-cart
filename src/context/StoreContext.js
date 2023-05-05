@@ -65,17 +65,18 @@ export const DataProvider = ({ children }) => {
   };
 
   const returnCartCost = () => {
-    return cart.reduce((total, item) => 
+    const cost = cart.reduce((total, item) => 
       { return Number(total + (item.quantity * item.product.price)); }, 0)
+    return cost.toFixed(2);
   }
 
   const returnDeliveryCost = () => {
-    if (returnCartCost() > 20) return 0.00;
+    if (returnCartCost() > 20) return Number(0);
     return Number(5);
   }
 
   const returnTotalCost = () => {
-    return returnCartCost() + returnDeliveryCost();
+    return Number(returnCartCost() + returnDeliveryCost()).toFixed(2);
   }
 
   return (

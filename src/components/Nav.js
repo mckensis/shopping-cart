@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import StoreContext from './StoreContext';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import Icon from "./images/icon.png";
+import plantIcon from '../images/icon.png';
+import StoreContext from '../context/StoreContext';
 
 const Nav = () => {
   const { cart, handleShowCart } = useContext(StoreContext);
@@ -11,7 +11,7 @@ const Nav = () => {
     <header>
       <Link to="/" className='title'>
         Planty
-        <img className="icon" src={Icon} alt=""/>
+        <img className="icon" src={plantIcon} alt=""/>
       </Link>
       <nav>
         <ul>

@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import StoreContext from "./StoreContext";
 import { BsTrash3 } from "react-icons/bs";
+import StoreContext from "../context/StoreContext";
 
 const Product = ({ product }) => {
   const {
